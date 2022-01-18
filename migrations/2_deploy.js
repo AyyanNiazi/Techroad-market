@@ -1,7 +1,7 @@
 // migrations/2_deploy.js
 // SPDX-License-Identifier: MIT
-const Techroad = artifacts.require("Techroad");
+const TechroadMarket = artifacts.require("TechroadMarket");
 
 module.exports = function(deployer) {
-  deployer.deploy(Techroad);
+  deployer.deploy(TechroadMarket);
 };

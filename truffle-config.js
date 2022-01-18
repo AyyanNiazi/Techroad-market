@@ -5,7 +5,7 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 const path = require("path");
 
 // const { projectId, mnemonic } = require('./secrets.json');
-const mnemonic = "steak tent kiwi gravity clump crazy industry brother scrap giggle patch movie"
+const Mnemonic = "purpose loan crystal student midnight worth rail patch system symbol intact powder"
 // const projectId = process.env.ROPSTEN_PRIVATE_KEY
 const bscScanApiKey = process.env.BSCSCANAPI
 // const nemonics2 = "steak tent kiwi gravity clump crazy industry brother scrap giggle patch movie"
@@ -22,11 +22,11 @@ module.exports = {
   },
   networks: {
 
-    // development: {
-    //   host: "127.0.0.1",     // Localhost (default: none)
-    //   port: 8545,            // Standard Ethereum port (default: none)
-    //   network_id: "*",       // Any network (default: none)
-    // },
+    development: {
+      host: "127.0.0.1",     // Localhost (default: none)
+      port: 8545,            // Standard Ethereum port (default: none)
+      network_id: "*",       // Any network (default: none)
+    },
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
@@ -38,21 +38,20 @@ module.exports = {
     // },
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
-    // ropsten: {
-    //   provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/5a40ea41322a461ba357451874c9e1be`),
-    //   network_id: 3,       // Ropsten's id
-    //   gas: 5500000,        // Ropsten has a lower block limit than mainnet
-    //   confirmations: 2,    // # of confs to wait between deployments. (default: 0)
-    //   timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-    //   skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-    // },
-    testnet: {
-      provider: () => new HDWalletProvider(mnemonic, `https://data-seed-prebsc-1-s1.binance.org:8545`),
+    ropsten: {
+      provider: () => new HDWalletProvider(Mnemonic, `https://ropsten.infura.io/v3/5a40ea41322a461ba357451874c9e1be`),
+      network_id: 3,       // Ropsten's id
+      gas: 5500000,        // Ropsten has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+    bscTestnet: {
+      provider: () => new HDWalletProvider(Mnemonic, `https://data-seed-prebsc-1-s1.binance.org:8545`),
       network_id: 97,
       confirmations: 10,
-      timeoutBlocks: 200,
+      timeoutBlocks: 400,
       skipDryRun: true,
-      // networkCheckTimeout: 999999
     },
     // Useful for private networks
     // private: {
@@ -73,8 +72,8 @@ module.exports = {
       version: "0.8.11",    // Fetch exact version from solc-bin (default: truffle's version)
       settings: {          // See the solidity docs for advice about optimization and evmVersion
        optimizer: {
-         enabled: false,
-         runs: 200
+         enabled: true,
+         runs: 300
        },
        evmVersion: "byzantium"
       }
